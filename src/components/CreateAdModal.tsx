@@ -69,7 +69,7 @@ export function CreateAdModal() {
             <Select.Root value={selectedGame} onValueChange={setSelectedGame}>
               <Select.Trigger
                 aria-label="Game"
-                className="bg-zinc-900 flex justify-between rounded py-3 px-4 text-sm [&:data-placeholder]:text-zinc-500"
+                className="bg-zinc-900 flex justify-between rounded py-3 px-4 text-sm [&[data-placeholder]]:text-zinc-500"
               >
                 <Select.Value placeholder="Selecione o game que deseja jogar" />
                 <Select.Icon>
@@ -85,7 +85,11 @@ export function CreateAdModal() {
                   <Select.Viewport className="bg-zinc-900 rounded py-3 px-4 text-sm cursor-pointer">
                     {games.map((game) => {
                       return (
-                        <Select.Item key={game.id} value={game.id}>
+                        <Select.Item
+                          key={game.id}
+                          value={game.id}
+                          className="flex items-center py-2 px-4 text-zinc-300 cursor-pointer [&[data-highlighted]]:bg-violet-400 [&[data-state=checked]]:bg-violet-400 [&[data-highlighted]]:text-white [&[data-state=checked]]:text-white"
+                        >
                           <Select.ItemText>{game.title}</Select.ItemText>
                         </Select.Item>
                       );
